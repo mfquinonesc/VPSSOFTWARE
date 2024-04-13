@@ -1,0 +1,90 @@
+<section class="hero is-fullheight-with-navbar">
+    <div class="hero-body" style="width: 100%;">
+        <div class="columns" style="width: 100%;">
+            <div class="column">
+                <div class="field">
+                    <label for="vehicle">Tipo de vehículo</label>
+                </div>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                            <select name="vehicle" id="vehicle" [(ngModel)]="vehicleType" (change)="changeVehicle()">
+                                <option value="carros">Carro</option>
+                                <option value="motos">Moto</option>
+                                <option value="caminhoes">Camión</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <button type="button" class="button is-primary" (click)="selectVehicle()">Seleccionar</button>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="brand">Marca</label>
+                </div>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                            <select name="brand" id="brand" #brand (change)="changeBrand()">
+                                <option *ngFor="let brand of brandArray" [value]="brand.codigo">{{brand.nome}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <button type="button" class="button is-primary"
+                            (click)="selectBrand(brand.value)">Seleccionar</button>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="model">Modelo</label>
+                </div>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                            <select name="model" id="model" #model>
+                                <option *ngFor="let model of modelArray" [value]="model.codigo">{{model.nome}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <button type="button" class="button is-primary"
+                            (click)="selectModel(model.value)">Seleccionar</button>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="year">Año</label>
+                </div>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <div class="select is-fullwidth">
+                            <select name="year" id="year" #year>
+                                <option *ngFor="let year of yearsArray" [value]="year.codigo">{{year.nome}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control">
+                        <button type="button" class="button is-primary"
+                            (click)="selectYear(year.value)">Seleccionar</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="column">
+                <article class="message is-success">
+                    <div class="message-header">
+                        <p>Vehículo</p>
+                    </div>
+                    <div class="message-body">
+                        <p>Marca: <span>{{vehicle.Marca}}</span></p>
+                        <p>Modelo: <span>{{vehicle.Modelo}}</span></p>
+                        <p>Año: <span>{{vehicle.AnoModelo}}</span></p>
+                        <p>Combustible: <span>{{vehicle.Combustivel}}</span></p>
+                        <p>Valor: <span>{{ vehicle.Valor }}</span></p>
+                        <p>Impuesto: <span>{{getTaxInfo()}}</span></p>
+
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
