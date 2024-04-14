@@ -1,14 +1,12 @@
 <section class="hero is-fullheight-with-navbar">
     <div class="hero-body" style="width: 100%;">
         <div class="columns" style="width: 100%;">
-            <div class="column">
-                
-                <div class="field ">                   
+            <div class="column">                    
+                <div class="field ">
                     <div class="control">
                         <button type="button" class="button is-primary" (click)="clear()">Limpiar</button>
                     </div>
                 </div>
-
                 <div class="field">
                     <label for="vehicle">Tipo de vehículo</label>
                 </div>
@@ -74,9 +72,8 @@
                             (click)="selectYear(year.value)">Seleccionar</button>
                     </div>
                 </div>
-
             </div>
-            <div class="column">
+            <div class="column">               
                 <article class="message is-success">
                     <div class="message-header">
                         <p>Vehículo</p>
@@ -88,12 +85,13 @@
                         <p>Combustible: <span>{{vehicle.Combustivel}}</span></p>
                         <p>Valor: <span>{{ vehicle.Valor }}</span></p>
                         <p>Impuesto: <span>{{getTaxInfo()}}</span></p>
-                        <p style="margin: 1rem 0;"><button class="button is-success" type="button" (click)="getCopMoney()">Convertir a pesos</button></p> 
+                        <p style="margin: 1rem 0;"><button class="button is-success" type="button"
+                                (click)="getCopMoney()">Convertir a pesos</button></p>
                         <p>Valor: <span>{{copPrice}}</span></p>
                         <p>Impuesto: <span>{{copTax}}</span></p>
-                        
-                    </div>
+                    </div>                        
                 </article>
+                <app-info></app-info>       
             </div>
         </div>
     </div>
